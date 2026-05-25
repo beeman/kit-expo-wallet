@@ -1,12 +1,17 @@
-import { Pressable, Text, View } from 'react-native'
+import { Description } from 'heroui-native/description'
+import { Label } from 'heroui-native/label'
+import { Radio } from 'heroui-native/radio'
+import { RadioGroup } from 'heroui-native/radio-group'
+import { View } from 'react-native'
 
 import { setTheme, useTheme } from '@/features/shell/data-access/use-theme'
+import type { Theme } from '@/features/shell/data-access/use-theme'
 
 export function ShellUiThemeSwitcher() {
   const { activeTheme, themes } = useTheme()
 
   return (
-    <View className="gap-3">
+    <RadioGroup value={activeTheme} onValueChange={(theme) => setTheme(theme as Theme)}>
       {themes.map((theme) => {
         const isSelected = activeTheme === theme.name
         const itemClassName = isSelected
@@ -17,23 +22,17 @@ export function ShellUiThemeSwitcher() {
           : 'text-base font-semibold text-gray-900 dark:text-white'
 
         return (
-          <Pressable
-            accessibilityRole="radio"
-            accessibilityState={{ checked: isSelected }}
-            className={itemClassName}
-            key={theme.name}
-            onPress={() => setTheme(theme.name)}
-          >
+          <RadioGroup.Item className={itemClassName} key={theme.name} value={theme.name}>
             <View className="flex-1 gap-1">
-              <Text className={titleClassName}>{theme.label}</Text>
-              <Text className="text-sm text-gray-600 dark:text-gray-300">
+              <Label className={titleClassName}>{theme.label}</Label>
+              <Description>
                 {theme.name === 'system' ? 'Use the device setting' : `${theme.label} appearance`}
-              </Text>
+              </Description>
             </View>
-            <Text className="text-sm font-semibold text-blue-600 dark:text-blue-300">{isSelected ? 'On' : ''}</Text>
-          </Pressable>
+            <Radio />
+          </RadioGroup.Item>
         )
       })}
-    </View>
+    </RadioGroup>
   )
 }

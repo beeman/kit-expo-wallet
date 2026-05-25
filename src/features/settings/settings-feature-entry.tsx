@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native'
+import { Card } from 'heroui-native/card'
 
 import { ShellUiPage } from '@/features/shell/ui/shell-ui-page'
 import { ShellUiPageHeader } from '@/features/shell/ui/shell-ui-page-header'
@@ -12,22 +12,22 @@ export function SettingsFeatureEntry() {
         title="Settings"
       />
 
-      <View className="gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-5 dark:border-gray-800 dark:bg-gray-950">
-        <View className="gap-1">
-          <Text className="text-xl font-bold text-gray-900 dark:text-white">Appearance</Text>
-          <Text className="text-base leading-relaxed text-gray-600 dark:text-gray-300">
+      <Card className="gap-4 p-5">
+        <Card.Body className="gap-1">
+          <Card.Title className="text-xl font-bold">Appearance</Card.Title>
+          <Card.Description className="leading-relaxed">
             Switch the app theme without leaving the Android tab shell.
-          </Text>
-        </View>
+          </Card.Description>
+        </Card.Body>
         <ShellUiThemeSwitcher />
-      </View>
+      </Card>
 
-      <View className="gap-2 rounded-2xl border border-gray-200 bg-gray-50 p-5 dark:border-gray-800 dark:bg-gray-950">
-        <Text className="text-xl font-bold text-gray-900 dark:text-white">Wallet settings</Text>
-        <Text className="text-base leading-relaxed text-gray-600 dark:text-gray-300">
+      <Card className="gap-2 p-5">
+        <Card.Title className="text-xl font-bold">Wallet settings</Card.Title>
+        <Card.Description className="leading-relaxed">
           Account preferences, security controls, and app identity settings can be added here.
-        </Text>
-      </View>
+        </Card.Description>
+      </Card>
     </ShellUiPage>
   )
 }

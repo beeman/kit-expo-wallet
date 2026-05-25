@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native'
+import { Card } from 'heroui-native/card'
 
 import { ShellUiPage } from '@/features/shell/ui/shell-ui-page'
 import { ShellUiPageHeader } from '@/features/shell/ui/shell-ui-page-header'
@@ -11,19 +11,19 @@ export function ToolsFeatureEntry() {
         title="Tools"
       />
 
-      <View className="gap-2 rounded-2xl border border-gray-200 bg-gray-50 p-5 dark:border-gray-800 dark:bg-gray-950">
-        <Text className="text-xl font-bold text-gray-900 dark:text-white">Transaction tools</Text>
-        <Text className="text-base leading-relaxed text-gray-600 dark:text-gray-300">
+      <Card className="gap-2 p-5">
+        <Card.Title className="text-xl font-bold">Transaction tools</Card.Title>
+        <Card.Description className="leading-relaxed">
           Add builders, simulators, or signing utilities here while keeping wallet access one tab away.
-        </Text>
-      </View>
+        </Card.Description>
+      </Card>
 
-      <View className="gap-2 rounded-2xl border border-gray-200 bg-gray-50 p-5 dark:border-gray-800 dark:bg-gray-950">
-        <Text className="text-xl font-bold text-gray-900 dark:text-white">Network tools</Text>
-        <Text className="text-base leading-relaxed text-gray-600 dark:text-gray-300">
+      <Card className="gap-2 p-5">
+        <Card.Title className="text-xl font-bold">Network tools</Card.Title>
+        <Card.Description className="leading-relaxed">
           Cluster status, address lookup, and developer helpers can live in this workspace.
-        </Text>
-      </View>
+        </Card.Description>
+      </Card>
     </ShellUiPage>
   )
 }

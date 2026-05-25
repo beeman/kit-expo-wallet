@@ -1,4 +1,5 @@
-import { Pressable, Text, View } from 'react-native'
+import { Button } from 'heroui-native/button'
+import { Text, View } from 'react-native'
 import { useMobileWallet } from '@wallet-ui/react-native-kit'
 
 import { ShellUiPage } from '@/features/shell/ui/shell-ui-page'
@@ -22,14 +23,14 @@ export function WalletFeatureEntry() {
               <Text className="text-gray-600 dark:text-gray-400" selectable>
                 Connected: {account.address.toString().slice(0, 8)}...
               </Text>
-              <Pressable className="rounded-xl bg-red-500 px-6 py-3 active:bg-red-600" onPress={disconnect}>
-                <Text className="font-bold text-white">Disconnect Wallet</Text>
-              </Pressable>
+              <Button variant="danger" onPress={disconnect}>
+                Disconnect Wallet
+              </Button>
             </View>
           ) : (
-            <Pressable className="rounded-xl bg-blue-600 px-6 py-3 active:bg-blue-700" onPress={connect}>
-              <Text className="text-lg font-bold text-white">Connect Wallet</Text>
-            </Pressable>
+            <Button size="lg" onPress={connect}>
+              Connect Wallet
+            </Button>
           )}
         </View>
 
