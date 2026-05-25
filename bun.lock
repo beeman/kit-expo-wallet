@@ -6,6 +6,7 @@
       "name": "kit-expo-wallet",
       "dependencies": {
         "@expo/metro-runtime": "~56.0.12",
+        "@nanostores/react": "^1.1.0",
         "@solana/kit": "^6.1.0",
         "@wallet-ui/react-native-kit": "^4.0.1",
         "expo": "56",
@@ -17,10 +18,13 @@
         "expo-status-bar": "~56.0.4",
         "expo-system-ui": "~56.0.5",
         "heroui-native": "^1.0.3",
+        "nanostores": "^1.2.0",
         "react": "19.2.3",
         "react-dom": "19.2.3",
         "react-native": "0.85.3",
         "react-native-gesture-handler": "^2.28.0",
+        "react-native-mmkv": "^4.3.1",
+        "react-native-nitro-modules": "^0.35.7",
         "react-native-quick-crypto": "^1.0.7",
         "react-native-reanimated": "^4.1.1",
         "react-native-safe-area-context": "~5.7.0",
@@ -1489,6 +1493,8 @@
     "react-native-gesture-handler": ["react-native-gesture-handler@2.31.2", "", { "dependencies": { "@egjs/hammerjs": "^2.0.17", "@types/react-test-renderer": "^19.1.0", "hoist-non-react-statics": "^3.3.0", "invariant": "^2.2.4" }, "peerDependencies": { "react": "*", "react-native": "*" } }, "sha512-rw5q74i2AfS7YGYdbxQDhOU7xqgY6WRM1132/CCm3erqjblhECZDZFHIm0tteHoC9ih24wogVBVVzcTBQtZ+5A=="],
 
     "react-native-is-edge-to-edge": ["react-native-is-edge-to-edge@1.3.1", "", { "peerDependencies": { "react": "*", "react-native": "*" } }, "sha512-NIXU/iT5+ORyCc7p0z2nnlkouYKX425vuU1OEm6bMMtWWR9yvb+Xg5AZmImTKoF9abxCPqrKC3rOZsKzUYgYZA=="],
+
+    "react-native-mmkv": ["react-native-mmkv@4.3.1", "", { "peerDependencies": { "react": "*", "react-native": "*", "react-native-nitro-modules": "*" } }, "sha512-APyGGaaHtayVgT18dBM8QGGZKr9pGfSTiBwbbPNzhGGfJQSU7awLGRGq879OqYl31HmVks9hOBLCs+qfgacRZg=="],
 
     "react-native-nitro-modules": ["react-native-nitro-modules@0.35.7", "", { "peerDependencies": { "react": "*", "react-native": "*" } }, "sha512-3EiU27EmnxTlD3pAXR2OBWeDg7+9tdjKrNQOPX08rFX5hJPNIT/h1i2PjvTUieOypCGTEi9nW/SNBtK3F+4HYg=="],
 

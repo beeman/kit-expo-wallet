@@ -19,10 +19,10 @@ function TabBarIcon({ focused, label }: { focused: boolean; label: string }) {
     <View
       className={cn(
         'h-6 w-6 items-center justify-center rounded-md border-2',
-        focused ? 'border-blue-500' : 'border-gray-500',
+        focused ? 'border-blue-500' : 'border-neutral-500',
       )}
     >
-      <Text className={cn('text-xs font-bold leading-4', focused ? 'text-blue-500' : 'text-gray-500')}>{label}</Text>
+      <Text className={cn('text-xs font-bold leading-4', focused ? 'text-blue-500' : 'text-neutral-500')}>{label}</Text>
     </View>
   )
 }
