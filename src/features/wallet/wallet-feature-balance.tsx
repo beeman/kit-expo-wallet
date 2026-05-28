@@ -1,9 +1,8 @@
 import Ionicons from '@expo/vector-icons/Ionicons'
 import type { Lamports } from '@solana/kit'
 import { Account } from '@wallet-ui/react-native-kit'
-import { Button } from 'heroui-native/button'
 import { Card } from 'heroui-native/card'
-import { Text, View } from 'react-native'
+import { Pressable, Text, View } from 'react-native'
 
 import { useTheme } from '@/features/shell/data-access/use-theme'
 import { useGetBalance } from '@/features/wallet/data-access/use-get-balance'
@@ -39,24 +38,22 @@ export function WalletFeatureBalance({ account }: { account: Account }) {
         <View className="gap-1">
           <View className="flex-row items-center gap-2">
             <Ionicons color={tintColor} name="cash-outline" size={22} />
-            <Card.Title className="text-xl font-bold">Balance</Card.Title>
+            <Card.Title className="flex-1 text-xl font-bold">Balance</Card.Title>
+            <Pressable
+              accessibilityLabel="Refresh activity"
+              disabled={balance.isFetching}
+              onPress={() => void balance.refetch()}
+            >
+              <Ionicons color={tintColor} name={balance.isFetching ? 'sync-outline' : 'refresh-outline'} size={20} />
+            </Pressable>
           </View>
-          <Card.Description className="leading-relaxed">Confirmed balance for the connected account.</Card.Description>
         </View>
         <View className="gap-1">
-          <Text className="text-2xl font-bold text-neutral-900 dark:text-white">{balanceText}</Text>
-          {balance.data?.value !== undefined ? (
-            <Text className="text-sm text-neutral-600 dark:text-neutral-300">
-              {balance.data.value.toLocaleString()} lamports
-            </Text>
-          ) : null}
+          <Text className="text-2xl font-bold text-neutral-900 text-right dark:text-white">{balanceText}</Text>
         </View>
         {balance.isError ? (
           <WalletUiStatusAlert description={formatError(balance.error)} status="danger" title="Balance error" />
         ) : null}
-        <Button isDisabled={balance.isFetching} variant="outline" onPress={() => void balance.refetch()}>
-          {balance.isFetching ? 'Refreshing...' : 'Refresh Balance'}
-        </Button>
       </Card.Body>
     </Card>
   )
