@@ -28,6 +28,13 @@ export interface UseThemeResult {
   isDark: boolean
   isLight: boolean
   mutedColor: string
+  navigationHeaderOptions: {
+    headerShadowVisible: false
+    headerStyle: { backgroundColor: string }
+    headerTitleAlign: 'left'
+    headerTintColor: string
+    headerTitleStyle: { color: string }
+  }
   theme: 'dark' | 'light'
   themes: ThemeOption[]
   tintColor: string
@@ -58,6 +65,13 @@ export function useTheme(): UseThemeResult {
     isDark,
     isLight,
     mutedColor,
+    navigationHeaderOptions: {
+      headerShadowVisible: false,
+      headerStyle: { backgroundColor },
+      headerTitleAlign: 'left',
+      headerTintColor: ACTIVE_TINT,
+      headerTitleStyle: { color: foregroundColor },
+    },
     theme,
     themes,
     tintColor: ACTIVE_TINT,

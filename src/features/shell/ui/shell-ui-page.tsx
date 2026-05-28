@@ -6,7 +6,7 @@ export function ShellUiPage({ centered, children }: PropsWithChildren<{ centered
   return (
     <ScrollView
       className="flex-1 bg-white dark:bg-black"
-      contentContainerClassName={cn('gap-6 px-6 py-8 pt-12', {
+      contentContainerClassName={cn('gap-6 px-4 py-2', {
         'flex-grow justify-center ': centered,
       })}
       contentInsetAdjustmentBehavior="automatic"

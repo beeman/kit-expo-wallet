@@ -31,7 +31,7 @@ function AppTabs() {
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="(wallet)"
         options={{
           tabBarIcon: ({ color, focused, size }) => (
             <Ionicons color={color} name={focused ? 'wallet' : 'wallet-outline'} size={size} />

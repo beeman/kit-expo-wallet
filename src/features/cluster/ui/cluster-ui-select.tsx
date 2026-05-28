@@ -4,7 +4,13 @@ import { View } from 'react-native'
 
 import { useAppCluster } from '@/features/cluster/data-access/cluster-provider'
 
-export function ClusterUiSelect() {
+export function ClusterUiSelect({
+  contentWidth = 'trigger',
+  triggerClassName = 'w-full',
+}: {
+  contentWidth?: 'trigger' | number
+  triggerClassName?: string
+}) {
   const { cluster: activeCluster, clusters, setCluster } = useAppCluster()
 
   return (
@@ -16,12 +22,12 @@ export function ClusterUiSelect() {
       }}
       value={{ label: activeCluster.label, value: activeCluster.id }}
     >
-      <Select.Trigger className="w-full">
+      <Select.Trigger className={triggerClassName}>
         <Select.Value placeholder="Select cluster" />
       </Select.Trigger>
       <Select.Portal>
         <Select.Overlay />
-        <Select.Content align="start" placement="bottom" presentation="popover" width="trigger">
+        <Select.Content align="start" placement="bottom" presentation="popover" width={contentWidth}>
           <Select.ListLabel>Cluster</Select.ListLabel>
           {clusters.map((cluster) => (
             <Select.Item key={cluster.id} label={cluster.label} value={cluster.id}>

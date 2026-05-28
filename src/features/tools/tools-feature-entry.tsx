@@ -6,7 +6,6 @@ import { Pressable, View } from 'react-native'
 
 import { useTheme } from '@/features/shell/data-access/use-theme'
 import { ShellUiPage } from '@/features/shell/ui/shell-ui-page'
-import { ShellUiPageHeader } from '@/features/shell/ui/shell-ui-page-header'
 
 type ToolIcon = ComponentProps<typeof Ionicons>['name']
 type ToolItem = {
@@ -34,12 +33,6 @@ export function ToolsFeatureEntry() {
 
   return (
     <ShellUiPage>
-      <ShellUiPageHeader
-        description="Developer and wallet utilities stay grouped behind a dedicated Android tab."
-        icon={<Ionicons color={tintColor} name="construct-outline" size={30} />}
-        title="Tools"
-      />
-
       {toolItems.map((item) => (
         <Link asChild href={item.href} key={item.id}>
           <Pressable accessibilityRole="button">

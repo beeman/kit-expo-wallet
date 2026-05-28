@@ -1,4 +1,5 @@
-import type { ReactNode } from 'react'
+import Ionicons from '@expo/vector-icons/Ionicons'
+import type { ComponentProps, ReactNode } from 'react'
 import { Text, View } from 'react-native'
 
 export function ShellUiPageHeader({
@@ -21,6 +22,25 @@ export function ShellUiPageHeader({
       ) : (
         description
       )}
+    </View>
+  )
+}
+
+export function ShellUiHeaderTitle({
+  foregroundColor,
+  icon,
+  tintColor,
+  title,
+}: {
+  foregroundColor: string
+  icon: ComponentProps<typeof Ionicons>['name']
+  tintColor: string
+  title: string
+}) {
+  return (
+    <View style={{ alignItems: 'center', flexDirection: 'row', gap: 8 }}>
+      <Ionicons color={tintColor} name={icon} size={22} />
+      <Text style={{ color: foregroundColor, fontSize: 20, fontWeight: '600' }}>{title}</Text>
     </View>
   )
 }

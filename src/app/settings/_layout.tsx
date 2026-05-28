@@ -3,7 +3,7 @@ import { Stack } from 'expo-router/stack'
 import { useTheme } from '@/features/shell/data-access/use-theme'
 import { ShellUiHeaderTitle } from '@/features/shell/ui/shell-ui-page-header'
 
-export default function ToolsLayout() {
+export default function SettingsLayout() {
   const { foregroundColor, navigationHeaderOptions, tintColor } = useTheme()
 
   return (
@@ -19,28 +19,12 @@ export default function ToolsLayout() {
           headerTitle: () => (
             <ShellUiHeaderTitle
               foregroundColor={foregroundColor}
-              icon="construct-outline"
+              icon="settings-outline"
               tintColor={tintColor}
-              title="Tools"
+              title="Settings"
             />
           ),
-          title: 'Tools',
-        }}
-      />
-      <Stack.Screen name="network" options={{ title: 'Network tools' }} />
-      <Stack.Screen name="transaction" options={{ title: 'Transaction tools' }} />
-      <Stack.Screen
-        name="wallet-actions"
-        options={{
-          headerTitle: () => (
-            <ShellUiHeaderTitle
-              foregroundColor={foregroundColor}
-              icon="wallet-outline"
-              tintColor={tintColor}
-              title="Wallet actions"
-            />
-          ),
-          title: 'Wallet actions',
+          title: 'Settings',
         }}
       />
     </Stack>
