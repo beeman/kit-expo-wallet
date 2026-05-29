@@ -1,7 +1,7 @@
 import { useMobileWallet } from '@wallet-ui/react-native-kit'
-import { Button } from 'heroui-native/button'
 import { ShellUiPage } from '@/features/shell/ui/shell-ui-page'
 import { WalletFeatureConnected } from '@/features/wallet/wallet-feature-connected'
+import { WalletUiConnectButton } from '@/features/wallet/ui/wallet-ui-connect-button'
 
 export function WalletFeatureEntry() {
   const wallet = useMobileWallet()
@@ -12,9 +12,9 @@ export function WalletFeatureEntry() {
       {account ? (
         <WalletFeatureConnected account={account} wallet={wallet} />
       ) : (
-        <Button size="lg" onPress={connect}>
+        <WalletUiConnectButton connect={connect} size="lg">
           Connect Wallet
-        </Button>
+        </WalletUiConnectButton>
       )}
     </ShellUiPage>
   )

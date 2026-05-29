@@ -11,6 +11,7 @@ import { useAppCluster } from '@/features/cluster/data-access/cluster-provider'
 import { useTheme } from '@/features/shell/data-access/use-theme'
 import { ShellUiPage } from '@/features/shell/ui/shell-ui-page'
 import { useGetTransactionSignatures } from '@/features/wallet/data-access/use-get-transaction-signatures'
+import { WalletUiConnectButton } from '@/features/wallet/ui/wallet-ui-connect-button'
 import { WalletUiStatusAlert } from '@/features/wallet/ui/wallet-ui-status-alert'
 import { formatError } from '@/features/wallet/util/format-error'
 
@@ -101,7 +102,11 @@ export function WalletFeatureActivity() {
 
   return (
     <ShellUiPage>
-      {account ? <WalletFeatureActivityList account={account} /> : <Button onPress={connect}>Connect Wallet</Button>}
+      {account ? (
+        <WalletFeatureActivityList account={account} />
+      ) : (
+        <WalletUiConnectButton connect={connect}>Connect Wallet</WalletUiConnectButton>
+      )}
     </ShellUiPage>
   )
 }

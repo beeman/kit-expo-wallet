@@ -1,5 +1,4 @@
 import { useMobileWallet } from '@wallet-ui/react-native-kit'
-import { Button } from 'heroui-native/button'
 
 import { useAppCluster } from '@/features/cluster/data-access/cluster-provider'
 import { ShellUiPage } from '@/features/shell/ui/shell-ui-page'
@@ -7,6 +6,7 @@ import { ToolsFeatureSignAndSendTransaction } from '@/features/tools/tools-featu
 import { ToolsFeatureSignIn } from '@/features/tools/tools-feature-sign-in'
 import { ToolsFeatureSignMessage } from '@/features/tools/tools-feature-sign-message'
 import { ToolsFeatureSignTransaction } from '@/features/tools/tools-feature-sign-transaction'
+import { WalletUiConnectButton } from '@/features/wallet/ui/wallet-ui-connect-button'
 
 export function ToolsFeatureWalletActions() {
   const wallet = useMobileWallet()
@@ -27,9 +27,9 @@ export function ToolsFeatureWalletActions() {
           <ToolsFeatureSignTransaction account={account} client={client} signTransactions={wallet.signTransactions} />
         </>
       ) : (
-        <Button size="lg" onPress={connect}>
+        <WalletUiConnectButton connect={connect} size="lg">
           Connect Wallet
-        </Button>
+        </WalletUiConnectButton>
       )}
     </ShellUiPage>
   )
